@@ -1,0 +1,161 @@
+{
+  "movies": [
+    {
+      "title": "Inception",
+      "release_year": 2010,
+      "genre": [
+        {
+          "name": "Science Fiction",
+          "subgenres": [
+            {
+              "name": "Thriller",
+              "description": "Intense, suspenseful, often exploring psychological themes."
+            },
+            {
+              "name": "Mind-Bending",
+              "description": "Movies with complex plots that challenge perception of reality."
+            }
+          ]
+        }
+      ],
+      "details": {
+        "runtime_minutes": 148,
+        "language": "English",
+        "rating": "PG-13"
+      },
+      "cast": [
+        {
+          "actor": "Leonardo DiCaprio",
+          "role": "Dom Cobb",
+          "character_details": {
+            "occupation": "Extractor",
+            "motivation": "Reunite with his children"
+          }
+        },
+        {
+          "actor": "Elliot Page",
+          "role": "Ariadne",
+          "character_details": {
+            "occupation": "Architect",
+            "motivation": "Explore and understand dream layers"
+          }
+        }
+      ],
+      "crew": {
+        "director": "Christopher Nolan",
+        "writers": [
+          {
+            "name": "Christopher Nolan",
+            "role": "Screenwriter"
+          }
+        ]
+      }
+    },
+    {
+      "title": "The Matrix",
+      "release_year": 1999,
+      "genre": [
+        {
+          "name": "Action",
+          "subgenres": [
+            {
+              "name": "Cyberpunk",
+              "description": "High-tech, futuristic with dystopian elements."
+            },
+            {
+              "name": "Science Fiction",
+              "description": "Explores themes of artificial intelligence and reality."
+            }
+          ]
+        }
+      ],
+      "details": {
+        "runtime_minutes": 136,
+        "language": "English",
+        "rating": "R"
+      },
+      "cast": [
+        {
+          "actor": "Keanu Reeves",
+          "role": "Neo",
+          "character_details": {
+            "occupation": "Hacker",
+            "motivation": "Discover the truth about reality"
+          }
+        },
+        {
+          "actor": "Carrie-Anne Moss",
+          "role": "Trinity",
+          "character_details": {
+            "occupation": "Freedom fighter",
+            "motivation": "Help Neo in the fight against machines"
+          }
+        }
+      ],
+      "crew": {
+        "director": "The Wachowskis",
+        "writers": [
+          {
+            "name": "The Wachowskis",
+            "role": "Screenwriters"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Interstellar",
+      "release_year": 2014,
+      "genre": [
+        {
+          "name": "Adventure",
+          "subgenres": [
+            {
+              "name": "Space Exploration",
+              "description": "Journey through outer space and unknown realms."
+            },
+            {
+              "name": "Science Fiction",
+              "description": "Focuses on futuristic and scientific concepts."
+            }
+          ]
+        }
+      ],
+      "details": {
+        "runtime_minutes": 169,
+        "language": "English",
+        "rating": "PG-13"
+      },
+      "cast": [
+        {
+          "actor": "Matthew McConaughey",
+          "role": "Cooper",
+          "character_details": {
+            "occupation": "Pilot",
+            "motivation": "Save humanity and reunite with his daughter"
+          }
+        },
+        {
+          "actor": "Anne Hathaway",
+          "role": "Brand",
+          "character_details": {
+            "occupation": "Scientist",
+            "motivation": "Discover habitable planets"
+          }
+        }
+      ],
+      "crew": {
+        "director": "Christopher Nolan",
+        "writers": [
+          {
+            "name": "Jonathan Nolan",
+            "role": "Screenwriter"
+          },
+          {
+            "name": "Christopher Nolan",
+            "role": "Screenwriter"
+          }
+        ]
+      }
+    }
+  ]
+}
