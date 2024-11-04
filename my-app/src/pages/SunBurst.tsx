@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 import * as d3 from "d3";
 
-import sunburst from "./sunburst.json";
+import sunburstData from "./sunburst.json";
 
 export default function SunBurst() {
   // const [data, setData] = useState(() => d3.ticks(-2, 2, 200).map(Math.sin));
@@ -35,7 +35,10 @@ export default function SunBurst() {
       .append("g")
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-    const root = d3.hierarchy(sunburst);
+    const root = d3
+      .hierarchy(sunburstData)
+      .sum((d) => d.value)
+      .sort((a, b) => b.value - a.value);
 
     console.log("testing debug output");
     console.log(root);
