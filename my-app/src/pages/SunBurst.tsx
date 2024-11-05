@@ -13,8 +13,10 @@ export default function SunBurst() {
   }, []);
 
   function drawChart() {
-    const height = 350,
-      width = 960;
+    // Specify the chart’s dimensions.
+    const width = 928;
+    const height = width;
+    const radius = width / 6;
     const tau = 2 * Math.PI;
     const maxValue = 100;
     const slice = 80;
@@ -26,42 +28,55 @@ export default function SunBurst() {
 
     d3.select("svg").remove();
 
-    const svg = d3
-      .select(containerRef.current)
-      .append("svg")
-      .attr("height", "60%")
-      .attr("width", "100%")
-      .attr("viewBox", `0 0 ${width} ${height}`)
-      .append("g")
-      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+    // Compute the layout.
+    const hierarchy = d3.hierarchy(sunburstData);
 
-    const root = d3
-      .hierarchy(sunburstData)
-      .sum((d) => d.value)
-      .sort((a, b) => b.value - a.value);
+    console.log(hierarchy);
+
+    const root = d3.partition().size([2 * Math.PI, hierarchy.height + 1])(
+      hierarchy
+    );
 
     console.log("testing debug output");
     console.log(root);
 
     // An arc will be created
-    const arcGen = d3
+    // Create the arc generator.
+    const arc = d3
       .arc()
-      .innerRadius(innerRadius)
-      .outerRadius(outerRadius)
-      .startAngle(startAngle)
-      .cornerRadius(cornerRadius);
+      .startAngle((d) => d.x0)
+      .endAngle((d) => d.x1)
+      .padAngle((d) => Math.min((d.x1 - d.x0) / 2, 0.005))
+      .padRadius(radius * 1.5)
+      .innerRadius((d) => d.y0 * radius)
+      .outerRadius((d) => Math.max(d.y0 * radius, d.y1 * radius - 1));
 
-    const arc1 = svg
-      .append("path")
-      .datum({ endAngle: tau })
-      .style("fill", "#ddd")
-      .attr("d", arcGen);
+    const svg = d3
+      .select(containerRef.current)
+      .attr("viewBox", [-width / 2, -height / 2, width, width])
+      .style("font", "10px sans-serif");
 
-    const foreground = svg
-      .append("path")
-      .datum({ endAngle: slice * tau })
-      .attr("fill", "#F57B21")
-      .attr("d", arcGen);
+    // Create the color scale.
+    const color = d3.scaleOrdinal(
+      d3.quantize(d3.interpolateRainbow, sunburstData.length + 1)
+    );
+
+    // Append the arcs.
+    const path = svg
+      .append("g")
+      .selectAll("path")
+      .data(root.descendants().slice(1))
+      .join("path")
+      .attr("fill", (d) => {
+        while (d.depth > 1) d = d.parent;
+        return color(d.data.name);
+      })
+      .attr("fill-opacity", (d) =>
+        arcVisible(d.current) ? (d.children ? 0.6 : 0.4) : 0
+      )
+      .attr("pointer-events", (d) => (arcVisible(d.current) ? "auto" : "none"))
+
+      .attr("d", (d) => arc(d.current));
 
     svg
       .append("text")
