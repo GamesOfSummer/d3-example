@@ -24,12 +24,8 @@ export default function SunBurst() {
       startAngle = 0,
       cornerRadius = 40;
 
-    //d3.select("svg").remove();
+    const color = d3.scaleOrdinal(d3.schemeGreens);
 
-    // Specify the chart’s colors and approximate radius (it will be adjusted at the end).
-    const color = d3.scaleOrdinal(
-      d3.quantize(d3.interpolateRainbow, data.children.length + 1)
-    );
     const radius = 928 / 2;
 
     const sumTotalValue = d3
@@ -81,6 +77,7 @@ export default function SunBurst() {
 
     svg
       .append("g")
+      .attr("fill", "green")
       .attr("fill-opacity", 0.6)
       .selectAll("path")
       .data(root.descendants().filter((d) => d.depth))
@@ -91,8 +88,8 @@ export default function SunBurst() {
     svg
       .append("text")
       .attr("text-anchor", "middle")
-      .text(`Movies`)
-      .style("font-size", "3.2em")
+      .text(`B+`)
+      .style("font-size", "4.2em")
       .style("fill", "#A9BF51");
   }
 
