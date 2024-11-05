@@ -24,18 +24,7 @@ export default function SunBurst() {
       startAngle = 0,
       cornerRadius = 40;
 
-    const color = d3.scaleOrdinal(d3.schemeGreens);
-
     const radius = 928 / 2;
-
-    const sumTotalValue = d3
-      .hierarchy(data)
-      .copy()
-      .sum((d) => d.value);
-
-    console.log("-- sumTotalValue");
-    console.log(sumTotalValue.value);
-    console.log(sumTotalValue);
 
     // Prepare the layout.
     const partition = (data) =>
@@ -75,15 +64,25 @@ export default function SunBurst() {
       .append("g")
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
+    const color = d3
+      .scaleSequential(d3.interpolateBlues)
+      .domain(d3.extent(root.descendants(), (d) => d.depth));
+
+    console.log(color(0));
+    console.log(color(4));
+
     svg
       .append("g")
-      .attr("fill", "green")
-      .attr("fill-opacity", 0.6)
       .selectAll("path")
-      .data(root.descendants().filter((d) => d.depth))
+      .data(root.descendants())
+      .attr("fill", "rgb(8, 48, 107)")
+      .attr("fill-opacity", (d) => 1)
       .join("path")
       .attr("d", arc)
-      .append("title");
+      .append("title")
+      .text(
+        (d) => `Color: ${color(d.depth)}, Depth: ${d.depth}, Value: ${d.value}`
+      );
 
     svg
       .append("text")
