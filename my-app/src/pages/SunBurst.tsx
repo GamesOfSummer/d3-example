@@ -65,7 +65,7 @@ export default function SunBurst() {
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
     const color = d3
-      .scaleSequential(d3.interpolateBlues)
+      .scaleSequential(d3.interpolateYlGn)
       .domain(d3.extent(root.descendants(), (d) => d.depth));
 
     console.log(color(0));
