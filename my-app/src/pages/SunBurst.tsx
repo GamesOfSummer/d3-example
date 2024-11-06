@@ -14,7 +14,7 @@ export default function SunBurst() {
     // Specify the chart’s dimensions.
     const width = 558;
     const height = 900;
-    const radius = width / 6;
+    const radius = width / 16;
 
     // Compute the layout.
     const hierarchy = d3
@@ -22,7 +22,7 @@ export default function SunBurst() {
       .sum((d) => d.value)
       .sort((a, b) => b.value - a.value);
 
-    const root = d3.partition().size([2 * Math.PI, hierarchy.height + 1])(
+    const root = d3.partition().size([2 * Math.PI, hierarchy.height + 0])(
       hierarchy
     );
 
@@ -34,7 +34,7 @@ export default function SunBurst() {
       .startAngle((d) => d.x0)
       .endAngle((d) => d.x1)
       .padAngle((d) => Math.min((d.x1 - d.x0) / 2, 0.005))
-      .padRadius(radius * 2)
+      .padRadius(radius * 20)
       .innerRadius((d) => d.y0 * radius)
       .outerRadius((d) => Math.max(d.y0 * radius, d.y1 * radius - 1));
 
