@@ -73,12 +73,13 @@ export default function SunBurst() {
 
     svg
       .append("g")
+      .attr("fill-opacity", 0.6)
       .selectAll("path")
-      .data(root.descendants())
-      .attr("fill", "rgb(8, 48, 107)")
-      .attr("fill-opacity", (d) => 1)
+      .data(root.descendants().filter((d) => d.depth))
       .join("path")
       .attr("d", arc)
+      .attr("fill", "red")
+      .attr("fill", (d) => color(d.depth))
       .append("title")
       .text(
         (d) => `Color: ${color(d.depth)}, Depth: ${d.depth}, Value: ${d.value}`
@@ -88,7 +89,7 @@ export default function SunBurst() {
       .append("text")
       .attr("text-anchor", "middle")
       .text(`B+`)
-      .style("font-size", "4.2em")
+      .style("font-size", "5.2em")
       .style("fill", "#A9BF51");
   }
 
@@ -107,12 +108,9 @@ export default function SunBurst() {
   }
 
   return (
-    <div className="container">
+    <div>
       SUNBURST
       <div ref={containerRef}></div>
-      <div className="slidecontainer">
-        <div className="salesfigure"></div>
-      </div>
     </div>
   );
 }
