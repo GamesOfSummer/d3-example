@@ -51,20 +51,6 @@ export default function SunBurst() {
       .scaleSequential(d3.interpolateYlGn)
       .domain(d3.extent(root.descendants(), (d) => d.depth));
 
-    //create arcs
-    // svg
-    //   .append("g")
-    //   .attr("fill-opacity", 0.6)
-    //   .selectAll("path")
-    //   .data(root.descendants().filter((d) => d.depth))
-    //   .join("path")
-    //   .attr("d", arc)
-    //   .attr("fill", (d) => color(d.depth))
-    //   .append("title")
-    //   .text(
-    //     (d) => `Color: ${color(d.depth)}, Depth: ${d.depth}, Value: ${d.value}`
-    //   );
-
     // Append the arcs.
     svg
       .append("g")
