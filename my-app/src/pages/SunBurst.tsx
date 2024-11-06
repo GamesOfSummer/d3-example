@@ -59,7 +59,7 @@ export default function SunBurst() {
       .select(containerRef.current)
       .append("svg")
       .attr("height", "60%")
-      .attr("width", "100%")
+      .attr("width", "80%")
       .attr("viewBox", `0 0 ${width} ${height}`)
       .append("g")
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
@@ -84,6 +84,7 @@ export default function SunBurst() {
     //labels
     svg
       .append("g")
+      .attr("fill", "white")
       .attr("font-family", "sans-serif")
       .attr("font-size", 12)
       .attr("text-anchor", "middle")
@@ -96,7 +97,7 @@ export default function SunBurst() {
           .append("tspan")
           .attr("y", "-0.4em")
           .attr("font-weight", "bold")
-          .text("TEST")
+          .text((d) => d.data.name)
       );
 
     // B text
@@ -125,7 +126,6 @@ export default function SunBurst() {
 
   return (
     <div>
-      SUNBURST
       <div ref={containerRef}></div>
     </div>
   );
