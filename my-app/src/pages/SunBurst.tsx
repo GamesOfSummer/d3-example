@@ -68,9 +68,6 @@ export default function SunBurst() {
       .scaleSequential(d3.interpolateYlGn)
       .domain(d3.extent(root.descendants(), (d) => d.depth));
 
-    console.log(color(0));
-    console.log(color(4));
-
     svg
       .append("g")
       .attr("fill-opacity", 0.6)
@@ -78,16 +75,35 @@ export default function SunBurst() {
       .data(root.descendants().filter((d) => d.depth))
       .join("path")
       .attr("d", arc)
-      .attr("fill", "red")
       .attr("fill", (d) => color(d.depth))
       .append("title")
       .text(
         (d) => `Color: ${color(d.depth)}, Depth: ${d.depth}, Value: ${d.value}`
       );
 
+    //labels
+    svg
+      .append("g")
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 12)
+      .attr("text-anchor", "middle")
+      .selectAll()
+      .data(root.descendants().filter((d) => d.depth))
+      .join("text")
+      .attr("transform", (d) => `translate(${arc.centroid(d)})`)
+      .call((text) =>
+        text
+          .append("tspan")
+          .attr("y", "-0.4em")
+          .attr("font-weight", "bold")
+          .text("TEST")
+      );
+
+    // B text
     svg
       .append("text")
       .attr("text-anchor", "middle")
+      .attr("y", 20)
       .text(`B+`)
       .style("font-size", "5.2em")
       .style("fill", "#A9BF51");
