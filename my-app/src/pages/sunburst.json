@@ -6,220 +6,34 @@
       "children": [
         {
           "name": "cluster",
-          "children": [
-            {
-              "name": "AgglomerativeCluster",
-              "children": [
-                {
-                  "name": "cluster",
-                  "children": [
-                    {
-                      "name": "AgglomerativeCluster",
-                      "children": [
-                        {
-                          "name": "AgglomerativeCluster",
-                          "children": [
-                            {
-                              "name": "AgglomerativeCluster",
-                              "children": [
-                                {
-                                  "name": "AgglomerativeCluster",
-                                  "children": [
-                                    {
-                                      "name": "AgglomerativeCluster",
-                                      "children": [
-                                        {
-                                          "name": "AgglomerativeCluster",
-                                          "value": 10938
-                                        }
-                                      ],
-                                      "value": 3938
-                                    }
-                                  ],
-                                  "value": 3938
-                                }
-                              ],
-                              "value": 3938
-                            }
-                          ],
-                          "value": 3938
-                        }
-                      ],
-                      "value": 3938
-                    }
-                  ]
-                }
-              ],
-              "value": 3938
-            }
-          ]
+          "children": [{ "name": "AgglomerativeCluster", "value": 3938 }]
+        },
+        {
+          "name": "graph",
+          "children": [{ "name": "BetweennessCentrality", "value": 3534 }]
+        },
+        {
+          "name": "optimization",
+          "children": [{ "name": "AspectRatioBanker", "value": 7074 }]
         }
       ]
     },
     {
       "name": "Findings",
-      "children": [
-        {
-          "name": "cluster",
-          "children": [
-            {
-              "name": "AgglomerativeCluster",
-              "children": [
-                {
-                  "name": "cluster",
-                  "children": [
-                    {
-                      "name": "AgglomerativeCluster",
-                      "children": [
-                        {
-                          "name": "AgglomerativeCluster",
-                          "children": [
-                            {
-                              "name": "AgglomerativeCluster",
-                              "children": [
-                                {
-                                  "name": "AgglomerativeCluster",
-                                  "children": [
-                                    {
-                                      "name": "AgglomerativeCluster",
-                                      "children": [
-                                        {
-                                          "name": "AgglomerativeCluster",
-                                          "value": 3938
-                                        }
-                                      ],
-                                      "value": 3938
-                                    }
-                                  ],
-                                  "value": 3938
-                                }
-                              ],
-                              "value": 3938
-                            }
-                          ],
-                          "value": 3938
-                        }
-                      ],
-                      "value": 3938
-                    }
-                  ]
-                }
-              ],
-              "value": 3938
-            }
-          ]
-        }
-      ]
+      "children": [{ "name": "Easing", "value": 17010 }]
     },
     {
       "name": "New Threats",
       "children": [
         {
-          "name": "cluster",
-          "children": [
-            {
-              "name": "AgglomerativeCluster",
-              "children": [
-                {
-                  "name": "cluster",
-                  "children": [
-                    {
-                      "name": "AgglomerativeCluster",
-                      "children": [
-                        {
-                          "name": "AgglomerativeCluster",
-                          "children": [
-                            {
-                              "name": "AgglomerativeCluster",
-                              "children": [
-                                {
-                                  "name": "AgglomerativeCluster",
-                                  "children": [
-                                    {
-                                      "name": "AgglomerativeCluster",
-                                      "children": [
-                                        {
-                                          "name": "AgglomerativeCluster",
-                                          "value": 3938
-                                        }
-                                      ],
-                                      "value": 3938
-                                    }
-                                  ],
-                                  "value": 3938
-                                }
-                              ],
-                              "value": 3938
-                            }
-                          ],
-                          "value": 3938
-                        }
-                      ],
-                      "value": 3938
-                    }
-                  ]
-                }
-              ],
-              "value": 3938
-            }
-          ]
+          "name": "converters",
+          "children": [{ "name": "Converters", "value": 721 }]
         }
       ]
     },
     {
       "name": "Vulnerabilities",
-      "children": [
-        {
-          "name": "cluster",
-          "children": [
-            {
-              "name": "AgglomerativeCluster",
-              "children": [
-                {
-                  "name": "cluster",
-                  "children": [
-                    {
-                      "name": "AgglomerativeCluster",
-                      "children": [
-                        {
-                          "name": "AgglomerativeCluster",
-                          "children": [
-                            {
-                              "name": "AgglomerativeCluster",
-                              "children": [
-                                {
-                                  "name": "AgglomerativeCluster",
-                                  "children": [
-                                    {
-                                      "name": "AgglomerativeCluster",
-                                      "children": [
-                                        {
-                                          "name": "AgglomerativeCluster",
-                                          "value": 3938
-                                        }
-                                      ],
-                                      "value": 3938
-                                    }
-                                  ],
-                                  "value": 3938
-                                }
-                              ],
-                              "value": 3938
-                            }
-                          ],
-                          "value": 3938
-                        }
-                      ],
-                      "value": 3938
-                    }
-                  ]
-                }
-              ],
-              "value": 3938
-            }
-          ]
-        }
-      ]
+      "children": [{ "name": "DirtySprite", "value": 8833 }]
     }
   ]
 }
