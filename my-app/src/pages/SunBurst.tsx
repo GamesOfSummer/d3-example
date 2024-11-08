@@ -89,48 +89,38 @@ export default function SunBurst() {
       .attr("text-anchor", "middle")
       .selectAll()
       .data(root.descendants().filter((d) => d.depth === 1))
-      .join("rect")
+      .join("g")
       .attr("transform", (d) => `translate(${arc.centroid(d)})`)
-      .call((rect) => {
-        rect
-          .attr("x", -35) // Adjust to control position of the rectangle
-          .attr("y", -20) // Adjust to control position of the rectangle
-          .attr("width", 70) // Width of the rectangle
+      .each(function (d) {
+        // Create the rectangle
+        d3.select(this)
+          .append("rect")
+          .attr("x", -45) // Adjust to control position of the rectangle
+          .attr("y", -10) // Adjust to control position of the rectangle
+          .attr("width", 90) // Width of the rectangle
           .attr("height", 24) // Height of the rectangle
           .attr("rx", 12) // Curved corner radius (rounded corners)
           .attr("ry", 12) // Curved corner radius (rounded corners)
-          .attr("fill", "#013220") // Rectangle background color (white)
-          .attr("stroke", "black") // Border color (black)
-          .attr("stroke-width", 1); // Border thickness
-      });
+          .attr("fill", "black") // Rectangle background color (red)
+          .attr("opacity", 0.6); // Set opacity to 60%
 
-    //labels
-    svg
-      .append("g")
-      .attr("fill", "white")
-      .attr("font-family", "sans-serif")
-      .attr("font-size", 12)
-      .attr("text-anchor", "middle")
-      .selectAll()
-      .data(root.descendants().filter((d) => d.depth === 1))
-      .join("text")
-      .attr("transform", (d) => `translate(${arc.centroid(d)})`)
-      .call((text) =>
-        text
-          .append("tspan")
-          .attr("y", "-0.4em")
+        // Create the text
+        d3.select(this)
+          .append("text")
+          .attr("y", "0.4em") // Position the text slightly down
+          .attr("fill", "white") // Text color (white)
           .attr("font-weight", "bold")
-          .text((d) => d.data.name)
-      );
+          .text(d.data.name);
+      });
 
     // B text
     svg
       .append("text")
       .attr("text-anchor", "middle")
-      .attr("y", 20)
+      .attr("y", 30)
       .text(`B+`)
-      .style("font-size", "5.2em")
-      .style("fill", "#A9BF51");
+      .style("font-size", "6.2em")
+      .style("fill", "white");
   }
 
   return (
