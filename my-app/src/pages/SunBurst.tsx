@@ -104,6 +104,13 @@ export default function SunBurst() {
           .attr("fill", "black") // Rectangle background color (red)
           .attr("opacity", 0.6); // Set opacity to 60%
 
+        d3.select(this)
+          .append("circle")
+          .attr("cx", -45) // x-coordinate of the circle's center
+          .attr("cy", 0) // y-coordinate of the circle's center
+          .attr("r", 5) // Radius of the circle (5 is a small value for a tiny circle)
+          .attr("fill", "white"); // Circle color (black)
+
         // Create the text
         d3.select(this)
           .append("text")
