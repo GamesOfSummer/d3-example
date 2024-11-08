@@ -64,21 +64,18 @@ export default function SunBurst() {
       .append("g")
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-    const color = d3
-      .scaleSequential(d3.interpolateYlGn)
-      .domain(d3.extent(root.descendants(), (d) => d.depth));
+    const color = ["#5f8a0a", "#5c8c01", "#73ac01", "#ece945"];
 
     svg
       .append("g")
-      .attr("fill-opacity", 0.6)
       .selectAll("path")
       .data(root.descendants().filter((d) => d.depth))
       .join("path")
       .attr("d", arc)
-      .attr("fill", (d) => color(d.depth))
+      .attr("fill", (d) => color[d.depth])
       .append("title")
       .text(
-        (d) => `Color: ${color(d.depth)}, Depth: ${d.depth}, Value: ${d.value}`
+        (d) => `Color: ${color[d.depth]}, Depth: ${d.depth}, Value: ${d.value}`
       );
 
     svg
@@ -116,7 +113,6 @@ export default function SunBurst() {
           .append("text")
           .attr("y", "0.4em") // Position the text slightly down
           .attr("fill", "white") // Text color (white)
-          .attr("font-weight", "bold")
           .text(d.data.name);
       });
 
