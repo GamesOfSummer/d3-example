@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "node init && next dev",
+    "build": "node init && next build",
+    "start": "node init && next start",
     "lint": "next lint",
     "___Global install NCU to run the commands below": "https://www.npmjs.com/package/npm-check-updates",
-    "⬇️ install-npm-packages": "npm install",
-    "🔍check-npm-packages": "ncu",
-    "⬇️update-npm-packages": "ncu -u"
+    "\u2b07\ufe0f install-npm-packages": "npm install",
+    "\ud83d\udd0dcheck-npm-packages": "ncu",
+    "\u2b07\ufe0fupdate-npm-packages": "ncu -u"
   },
   "dependencies": {
     "react": "19.0.0-rc-02c0e824-20241028",
@@ -22,7 +22,6 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "eslint": "^8",
